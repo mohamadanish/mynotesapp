@@ -5,6 +5,9 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,14 +50,13 @@ public class RegisterServlet extends HttpServlet {
 		String e = request.getParameter("email");
 		String ph = request.getParameter("phone");
 		String a = request.getParameter("address");
-		System.out.println(n);
-		System.out.println(p);
-
+		RequestDispatcher dispatcher = null;
+		Connection con = null;
 		
 		try {
 			 Class.forName("com.mysql.cj.jdbc.Driver");
-			 Connection con = DriverManager.getConnection(
-			 "jdbc:mysql://localhost:3308/users", "root", "password");
+			 con = DriverManager.getConnection(
+			 "jdbc:mysql://localhost:3308/users?useSSL=false", "root", "password");
 			 PreparedStatement ps = con.prepareStatement("insert into USERSINFO (username, password, email, address, phone) values(?,?,?,?,?)");
 			 ps.setString(1, n);
 			 ps.setString(2, p);
@@ -64,16 +66,32 @@ public class RegisterServlet extends HttpServlet {
 
 			 
 			 int i = ps.executeUpdate();
+			 dispatcher = request.getRequestDispatcher("register.jsp");
 			 if (i > 0){
-				 PrintWriter writer = response.getWriter();
-				 writer.println("<h1>" + "You have successfully registered an account!" +
-				 "</h1>");
-				 writer.close();
-				 } 
+				 
+				 request.setAttribute("status", "success");
+//				 PrintWriter writer = response.getWriter();
+//				 writer.println("<h1>" + "You have successfully registered an account!" +
+//				 "</h1>");
+//				 writer.close();
+				 } else {
+					 request.setAttribute("status", "failed");
+
+				 }
+			 
+			 dispatcher.forward(request, response);
 		}
-		catch (Exception exception) {
-			 System.out.println(exception);
-			 out.close();
+		catch (Exception exception ) {
+			exception.printStackTrace();
+//			 System.out.println(exception);
+//			 out.close();
+			} finally {
+				try {
+					con.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		// TODO Auto-generated method stub
 		doGet(request, response);
