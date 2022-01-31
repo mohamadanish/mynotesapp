@@ -57,7 +57,7 @@
 	<script type="text/javascript">
 	var status = document.getElementById("status").value;
 	if(status == "success"){
-		swal("Congratulations","You have create an account successfully");
+		swal("Congratulations","You have create an account successfully","success");
 	}
 	</script>
 					

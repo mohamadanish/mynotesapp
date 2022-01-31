@@ -37,7 +37,7 @@
 	<script type="text/javascript">
 	var status = document.getElementById("status").value;
 	if(status == "failed"){
-		swal("Sorry","Invalid Username or Password!");
+		swal("Sorry","Invalid Username or Password!", "error");
 	}
 	</script>
 
