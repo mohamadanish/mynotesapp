@@ -38,10 +38,12 @@
 						class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Notes</a></li>
 					<li class="nav-item mx-0 mx-lg-1"><a
 						class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Reminders</a></li>
+						<li class="nav-item mx-0 mx-lg-1"><a
+						class="nav-link py-3 px-0 px-lg-3 rounded" href="AdminServlet/dashboard">Admin</a></li>
 					<li class="nav-item mx-0 mx-lg-1"><a
 						class="nav-link py-3 px-0 px-lg-3 rounded" href="logout">Logout</a></li>
 						<li class="nav-item mx-0 mx-lg-1"><a
-						class="nav-link py-3 px-0 px-lg-3 rounded" href="logout"><%=session.getAttribute("username") %></a></li>
+						class="nav-link py-3 px-0 px-lg-3 rounded" href="ProfileServlet/profile"><%=session.getAttribute("username") %></a></li>
 					
 				</ul>
 			</div>
