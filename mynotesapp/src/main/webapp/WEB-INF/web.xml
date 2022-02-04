@@ -22,4 +22,17 @@
  <url-pattern>/AdminServlet/update</url-pattern>
  <url-pattern>/AdminServlet/delete</url-pattern>
  </servlet-mapping>
+ 
+ <servlet>
+ <servlet-name>RemindersServlet</servlet-name>
+ <servlet-class>RemindersServlet</servlet-class>
+ </servlet>
+
+ <servlet-mapping>
+ <servlet-name>RemindersServlet</servlet-name>
+<url-pattern>/RemindersServlet/dashboard</url-pattern>
+ <url-pattern>/RemindersServlet/edit</url-pattern>
+ <url-pattern>/RemindersServlet/update</url-pattern>
+ <url-pattern>/RemindersServlet/delete</url-pattern>
+ </servlet-mapping>
 </web-app>

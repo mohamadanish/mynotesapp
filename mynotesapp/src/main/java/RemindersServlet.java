@@ -40,15 +40,16 @@ public class RemindersServlet extends HttpServlet {
 		String action = request.getServletPath();
 		try {
 			switch (action) {
-			case "/insert":
+//			case "/RemindersServlet/delete":
+//				deleteReminder(request, response);
+//				break;
+			case "/RemindersServlet/edit":
+				showEditForm(request, response);
 				break;
-			case "/delete":
+			case "/RemindersServlet/update":
+				updateReminder(request, response);
 				break;
-			case "/edit":
-				break;
-			case "/update":
-				break;
-			default:
+			case "/RemindersServlet/dashboard":
 				listReminders(request, response);
 				break;
 			}
@@ -142,8 +143,75 @@ public class RemindersServlet extends HttpServlet {
 // userManagement.jsp
 
 		request.setAttribute("listReminders", reminder);
-		//System.out.println(reminder);
+		// System.out.println(reminder);
 		request.getRequestDispatcher("/reminderManagement.jsp").forward(request, response);
 
 	}
+	
+	int userid=1;
+
+	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		// get parameter passed in the URL
+		int id = Integer.parseInt(request.getParameter("id"));
+		Reminders existingReminder = new Reminders(id,userid,"", "", "");
+		// Step 1: Establishing a Connection
+		try (Connection connection = getConnection();
+				// Step 2:Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_REMINDERS_BY_ID);) {
+			preparedStatement.setInt(1, id);
+			// Step 3: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+			// Step 4: Process the ResultSet object
+			while (rs.next()) {
+				id = rs.getInt("id");
+				String startdate = rs.getString("startdate");
+				String enddate = rs.getString("enddate");
+				String task = rs.getString("task");
+				existingReminder = new Reminders(id,userid,startdate, enddate, task);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		// Step 5: Set existingUser to request and serve up the userEdit form
+		request.setAttribute("reminder", existingReminder);
+		request.getRequestDispatcher("/reminderEdit.jsp").forward(request, response);
+	}
+
+	// method to update the user table base on the form data
+	private void updateReminder(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException {
+			//Step 1: Retrieve value from the request
+			int id = Integer.parseInt(request.getParameter("id"));
+			String startdate = request.getParameter("startdate");
+			 String enddate = request.getParameter("enddate");
+			 String task = request.getParameter("task");
+
+			 //Step 2: Attempt connection with database and execute update user SQL query
+			 try (Connection connection = getConnection(); PreparedStatement statement =
+			connection.prepareStatement(UPDATE_REMINDERS_SQL);) {
+			statement.setInt(1,id);
+			 statement.setString(2, startdate);
+			 statement.setString(3, enddate);
+			 statement.setString(4, task);
+			 int i = statement.executeUpdate();
+			 }
+			 //Step 3: redirect back to UserServlet (note: remember to change the url to your project name)
+			 response.sendRedirect("http://localhost:8090/mynotesapp/RemindersServlet/dashboard");
+			}
+
+//	private void deleteReminder(HttpServletRequest request, HttpServletResponse response)
+//			throws SQLException, IOException {
+//			//Step 1: Retrieve value from the request
+//			 int id = request.getParameterValues(id);
+//			 //Step 2: Attempt connection with database and execute delete user SQL query
+//			 try (Connection connection = getConnection(); PreparedStatement statement =
+//			connection.prepareStatement(DELETE_USERS_SQL);) {
+//			 statement.setString(1, name);
+//			 int i = statement.executeUpdate();
+//			 }
+//			 //Step 3: redirect back to UserServlet dashboard (note: remember to change the url to
+//			your project name)
+//			 response.sendRedirect("http://localhost:8090/HelloWorldJavaEE/UserServlet/dashboard");
+//			}
 }
