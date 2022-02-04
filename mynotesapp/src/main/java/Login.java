@@ -63,7 +63,7 @@ public class Login extends HttpServlet {
 				 session.setAttribute("phone", rs.getString("address"));
 				 session.setAttribute("address", rs.getString("phone"));
 
-				 dispatcher = request.getRequestDispatcher("index.jsp");
+				 dispatcher = request.getRequestDispatcher("userHome.jsp");
 //				 dispatcher = request.getRequestDispatcher("Profile.jsp");
 
 				 
