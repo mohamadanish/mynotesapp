@@ -46,7 +46,6 @@ public class AddNoteServlet extends HttpServlet {
 		String userid = request.getParameter("userid");
 		String title = request.getParameter("title");
 		String note = request.getParameter("note");
-		String datetime = request.getParameter("datetime"); //FIGURE OUT IF THIS IS THE WAY TO ADD DATETIME TO DB SINCE IT IS AUTO_GENERATED
 		
 		
 		try {
@@ -54,14 +53,13 @@ public class AddNoteServlet extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mynotesapp", "root", "password"); //check the connection
 			// Step 4: implement the sql query using prepared statement
 			// (https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html)
-			PreparedStatement ps = con.prepareStatement("insert into notes (userid,title,note,datetime) values(?,?,?,?)");
+			PreparedStatement ps = con.prepareStatement("insert into notes (userid,title,note) values(?,?,?)");
 
 			// Step 5: parse in the data retrieved from the web form request into the
 			// prepared statement accordingly
 			ps.setString(1, userid);
 			ps.setString(2, title);
 			ps.setString(3, note);
-			ps.setString(4, datetime);
 			// Step 6: perform the query on the database using the prepared statement
 			int i = ps.executeUpdate();
 			// Step 7: check if the query had been successfully execute, return “You are

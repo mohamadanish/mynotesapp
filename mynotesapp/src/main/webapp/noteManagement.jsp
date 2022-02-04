@@ -26,26 +26,31 @@
 			<table class="table">
 				<thead>
 					<tr>
+						<th>UserId</th>
 						<th>Title</th>
 						<th>Note</th>
+						<th>Update Note</th>
+						<th>Remove Note</th>
 					</tr>
 				</thead>
 				<!-- Pass in the list of notes receive via the Servlet’s response to a loop
 -->
 				<tbody>
 					<c:forEach var="notes" items="${listNotes}">
-						<!-- For each user in the database, display their
-information accordingly -->
+						<!-- For each note in the database, display it accordingly -->
 						<tr>
+							<td><c:out value="${notes.userid}" /></td>
+							<!--  added this -->
 							<td><c:out value="${notes.title}" /></td>
 							<td><c:out value="${notes.note}" /></td>
 							<!-- For each note in the database, Edit/Delete
 buttons which invokes the edit/delete functions -->
-							<td><a href="edit?note=<c:out value='${notes.note}'
+							<td><a class="btn btn-warning"
+								href="NotesServlet/edit?id=<c:out value='${notes.id}'
 />">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?note=<c:out
-value='${notes.note}' />">Delete</a></td>
+							<td><a class="btn btn-danger"
+								href="NotesServlet/delete?id=<c:out value='${notes.id}'
+/>">Delete</a>
 						</tr>
 					</c:forEach>
 				</tbody>
