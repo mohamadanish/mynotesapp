@@ -31,7 +31,7 @@
 
 						<div class="signin-form">
 							<h2 class="form-title">Sign in</h2>
-							<form method="post" action="Login" class="register-form"
+							<form method="post" action="Login" class="register-form" name="myForm"
 								id="login-form">
 								<div class="form-group">
 									<label for="username"><i
@@ -44,7 +44,7 @@
 										type="password" name="password" id="password"
 										placeholder="Password" />
 								</div>
-								<div class="form-group form-button">
+								<div class="form-group form-button" onClick="return validate();">
 									<input type="submit" name="signin" id="signin"
 										class="form-submit" value="Log in" />
 								</div>
@@ -64,6 +64,23 @@
 		var status = document.getElementById("status").value;
 		if (status == "failed") {
 			swal("Sorry", "Invalid Username or Password!", "error");
+		}
+		
+		function validate() {
+			var username = document.myForm.value;
+			if(username="") {
+				alert("Username cannot be empty!");
+				document.myForm.username.focus();
+				return false;
+			}
+			
+			var password = document.myForm.password.value;
+			if(password=""){
+				alert("Password cannot be empty!");
+				document.myForm.upassword.focus();
+				return false;
+
+			}
 		}
 	</script>
 

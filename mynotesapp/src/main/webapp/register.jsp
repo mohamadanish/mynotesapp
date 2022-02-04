@@ -22,7 +22,7 @@
 						<h2 class="form-title">Sign Up</h2>
 
 						<form method="post" action="RegisterServlet" class="register-form"
-							id="register-form">
+							id="register-form" name ="myForm">
 							<div class="form-group">
 								<label for="username"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
@@ -55,7 +55,7 @@
 									placeholder="Address" />
 							</div>
 							<div class="form-group form-button">
-								<input type="submit" name="register" id="register"
+								<input type="submit" onClick="return validate();" name="register" id="register"
 									class="form-submit" value="Register" />
 							</div>
 						</form>
@@ -81,6 +81,23 @@
 		if (status == "success") {
 			swal("Congratulations", "You have create an account successfully",
 					"success");
+		}
+		
+		function validate() {
+			var username = document.myForm.value;
+			if(username="") {
+				alert("Username cannot be empty!");
+				document.myForm.username.focus();
+				return false;
+			}
+			
+			var password = document.myForm.password.value;
+			if(password=""){
+				alert("Password cannot be empty!");
+				document.myForm.upassword.focus();
+				return false;
+
+			}
 		}
 	</script><!-- <form action ="RegisterServlet" method = "post">
 	Name: <input type="text" name = "userName">
