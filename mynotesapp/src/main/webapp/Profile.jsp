@@ -1,17 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
+	
+	<link href="<c:url value="/css/index-styles.css" />" rel="stylesheet" >
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
 </head>
 <body>
+
 <nav>
 		<div class="logo">
 			<p>MYNOTESAPP</p>
@@ -25,21 +29,9 @@
 			<li><a href="<%=request.getContextPath()%>/ProfileServlet/profile"><%=session.getAttribute("username") %></a></li>
 		</ul>
 	</nav>
-	<br>
-	<h3 style="margin-left:45%;">List of Users</h3>
-	
-	<div class="row">
-		<div class="container">
-			
-			<div class="container text-left">
-				<!-- Add new user button redirects to the register.jsp page -->
-				<a href="<%=request.getContextPath()%>/register.jsp"
-					class="btn btn-warning">Add New User</a>
-			</div>
-			<br>
-			<!-- Create a table to list out all current users information -->
-			<table class="table table-light table-striped"  style="width:100%;">
-				<thead class="thead-dark">
+
+ <%-- <table class="table">
+				<thead>
 					<tr>
 						<th>Name</th>
 						<th>Password</th>
@@ -50,7 +42,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="user" items="${listUsers}">
+					<c:forEach var="user" items="${listUser}">
 						<!-- For each user in the database, display their
 information accordingly -->
 						<tr>
@@ -63,14 +55,39 @@ information accordingly -->
 							<!-- For each user in the database, Edit/Delete
 buttons which invokes the edit/delete functions -->
 							<td><a href="edit?id=<c:out value='${user.id}'/>">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp; 
-							<a href="delete?id=<c:out 
-							value='${user.id}' />">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
-			</table>
-		</div>
-	</div>
+			</table>  --%>
+<%-- <input type = 'text' name ='username' value ='${username}' readonly>
+  <input type = 'text' name ='password' value ='${password}'readonly>
+   <input type = 'text' name ='email' value ='${email}'readonly>
+   <input type = 'text' name ='address' value ='${address}'readonly>
+   <input type = 'text' name ='phone' value ='${phone}'readonly> 
+    <a type = 'submit' href="edit?id=<c:out  value='${id}'/>">Update</a>  --%>
+    
+<div class="card">
+<img src="<%=request.getContextPath() + "/images/pp.png"%>">
+<form class="p-5">
+	<label class="form-label">Username:</label>
+	<input type="text" readonly class="form-control" value="${username}"/>
+	
+	<label class="form-label">Password:</label>
+	<input type="text" readonly class="form-control" value="${password}"/>
+	
+	<label class="form-label">Email:</label>
+	<input type="text" readonly class="form-control" value="${email}"/>
+	
+	<label class="form-label">Address:</label>
+	<input type="text" readonly class="form-control" value="${address}"/>
+	
+	<label class="form-label">Phone:</label>
+	<input type="text" readonly class="form-control" value="${phone}"/>
+	<br/>
+	<a type='submit' class="btn btn-warning" href="edit?id=<c:out  value='${id}'/>">Update</a>
+	
+</form>
+</div>    
 
 </body>
 <style>
@@ -118,7 +135,7 @@ nav ul li a:hover{
 nav ul li .active{
 	color:#c0d96f;
 }
-/* img{
+img{
 	width: 30%;
 	height: 0px auto;
 	padding-top:1%;
@@ -131,9 +148,9 @@ nav ul li .active{
   text-align: center;
   font-family: arial;
   margin-top: 2%;
-} */
+}
 body {
   background-color: #088F8F;
 } 
  </style>
-</html>
+</html> 
