@@ -49,7 +49,7 @@ public class Login extends HttpServlet {
 		
 		try { 
 			 Class.forName("com.mysql.cj.jdbc.Driver");
-			 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/users", "root", "password");	
+			 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mynotesapp", "root", "password");	
 			 PreparedStatement pst = con.prepareStatement("select * from USERSINFO where username = ? and password = ?");
 			 pst.setString(1, n);
 			 pst.setString(2, p);
@@ -64,7 +64,7 @@ public class Login extends HttpServlet {
 				 session.setAttribute("phone", rs.getString("address"));
 				 session.setAttribute("address", rs.getString("phone"));
 
-				 dispatcher = request.getRequestDispatcher("userHome.jSsp");
+				 dispatcher = request.getRequestDispatcher("userHome.jsp");
 //				 dispatcher = request.getRequestDispatcher("Profile.jsp");
 
 				 
