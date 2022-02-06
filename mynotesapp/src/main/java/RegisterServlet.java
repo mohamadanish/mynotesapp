@@ -56,7 +56,7 @@ public class RegisterServlet extends HttpServlet {
 		try {
 			 Class.forName("com.mysql.cj.jdbc.Driver");
 			 con = DriverManager.getConnection(
-			 "jdbc:mysql://localhost:3308/users?useSSL=false", "root", "password");
+			 "jdbc:mysql://localhost:3306/users?useSSL=false", "root", "password");
 			 PreparedStatement ps = con.prepareStatement("insert into USERSINFO (username, password, email, address, phone) values(?,?,?,?,?)");
 			 ps.setString(1, n);
 			 ps.setString(2, p);
