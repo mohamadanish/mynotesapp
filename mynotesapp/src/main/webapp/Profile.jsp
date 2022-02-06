@@ -22,8 +22,8 @@
 		</div>
 		<ul>
 			<li><a href="<%=request.getContextPath()%>/userHome.jsp" class="active">Home</a></li>
-			<li><a href="">Notes</a></li>
-			<li><a href="">Reminders</a></li>
+			<li><a href="<%=request.getContextPath()%>/NotesServlet">Notes</a></li>
+			<li><a href="<%=request.getContextPath()%>/RemindersServlet/dashboard">Reminders</a>
 			<li><a href="<%=request.getContextPath()%>/AdminServlet/dashboard">Admin</a></li>
 			<li><a href="<%=request.getContextPath()%>/logout">logout</a></li>
 			<li><a href="<%=request.getContextPath()%>/ProfileServlet/profile"><%=session.getAttribute("username") %></a></li>
