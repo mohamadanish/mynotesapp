@@ -67,8 +67,8 @@ public class NotesServlet extends HttpServlet {
 		// String title = request.getParameter("title");
 		
 		int Id = Integer.parseInt(request.getParameter("id"));
-		int Userid = 1;
-		Notes existingNote = new Notes(Id, Userid, "", "");
+		//int Userid = 1;
+		Notes existingNote = new Notes(Id, "", "");//Userid,
 		// Step 1: Establishing a Connection
 		try (Connection connection = getConnection();
 				// Step 2:Create a statement using connection object
@@ -79,10 +79,10 @@ public class NotesServlet extends HttpServlet {
 			// Step 4: Process the ResultSet object
 			while (rs.next()) {
 				int id = rs.getInt("id");
-				int userid = rs.getInt("userid");
+				//int userid = rs.getInt("userid");
 				String title = rs.getString("title");
 				String note = rs.getString("note");
-				existingNote = new Notes(id, userid, title, note);
+				existingNote = new Notes(id, title, note);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -145,12 +145,12 @@ public class NotesServlet extends HttpServlet {
 	private String jdbcPassword = "password";
 	// Step 2: Prepare list of SQL prepared statements to perform CRUD to our
 	// database
-	private static final String INSERT_NOTES_SQL = "INSERT INTO notes" + " (userid,title,note,datetime) VALUES "
+	private static final String INSERT_NOTES_SQL = "INSERT INTO notes" + " (title,note) VALUES "
 			+ " (?, ?, ?,?);";
-	private static final String SELECT_NOTE_BY_USERID = "select userid,title,note,datetime from notes where userid =?;";
+	//private static final String SELECT_NOTE_BY_USERID = "select userid,title,note,datetime from notes where userid =?;";
 	private static final String SELECT_NOTE_BY_ID = "select * from notes where id=?; ";
 	private static final String SELECT_ALL_NOTES = "select * from notes ";
-	private static final String DELETE_NOTES_SQL = "delete from notes where userid = ?;"; //DELeTE THE * IF IT DOESNT WORK 
+	private static final String DELETE_NOTES_SQL = "delete from notes where id = ?;"; //DELeTE THE * IF IT DOESNT WORK 
 	private static final String UPDATE_NOTES_SQL = "update notes set title = ?,note= ? where id = ?;";
 
 	// Step 3: Implement the getConnection method which facilitates connection to
@@ -180,10 +180,10 @@ public class NotesServlet extends HttpServlet {
 			// Step 5.3: Process the ResultSet object.
 			while (rs.next()) {
 				int id = rs.getInt("id");
-				int userid = rs.getInt("userid");
+				//int userid = rs.getInt("userid");
 				String title = rs.getString("title");
 				String note = rs.getString("note");
-				notes.add(new Notes(id, userid, title, note));
+				notes.add(new Notes(id, title, note));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

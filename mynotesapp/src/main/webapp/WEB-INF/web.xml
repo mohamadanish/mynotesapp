@@ -22,4 +22,17 @@
 		<url-pattern>/NotesServlet/update</url-pattern>
 		<url-pattern>/NotesServlet/delete</url-pattern>
 	</servlet-mapping>
+  
+  <servlet>
+ <servlet-name>AdminServlet</servlet-name>
+ <servlet-class>AdminServlet</servlet-class>
+ </servlet>
+
+ <servlet-mapping>
+ <servlet-name>AdminServlet</servlet-name>
+<url-pattern>/AdminServlet/dashboard</url-pattern>
+ <url-pattern>/AdminServlet/edit</url-pattern>
+ <url-pattern>/AdminServlet/update</url-pattern>
+ <url-pattern>/AdminServlet/delete</url-pattern>
+ </servlet-mapping>
 </web-app>

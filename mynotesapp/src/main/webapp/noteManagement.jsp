@@ -9,11 +9,17 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
+<style type="text/css">
+.body {
+  background-color: #088F8F;
+}
+
+</style>
 <title>All notes</title>
 </head>
 <body>
 	<div class="row">
-		<div class="container">
+		<div class="container ">
 			<h3 class="text-center">List of Notes</h3>
 			<hr>
 			<div class="container text-left">
@@ -26,7 +32,6 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>UserId</th>
 						<th>Title</th>
 						<th>Note</th>
 						<th>Update Note</th>
@@ -39,7 +44,6 @@
 					<c:forEach var="notes" items="${listNotes}">
 						<!-- For each note in the database, display it accordingly -->
 						<tr>
-							<td><c:out value="${notes.userid}" /></td>
 							<!--  added this -->
 							<td><c:out value="${notes.title}" /></td>
 							<td><c:out value="${notes.note}" /></td>

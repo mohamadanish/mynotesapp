@@ -43,7 +43,7 @@ public class AddNoteServlet extends HttpServlet {
 		//Step 1: Initialize a PrintWriter object to return the html values via the response
 		PrintWriter out = response.getWriter();
 		//Step 2: retrieve the four parameters from the request from the web form
-		String userid = request.getParameter("userid");
+		//String userid = request.getParameter("userid");
 		String title = request.getParameter("title");
 		String note = request.getParameter("note");
 		
@@ -53,22 +53,23 @@ public class AddNoteServlet extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mynotesapp", "root", "password"); //check the connection
 			// Step 4: implement the sql query using prepared statement
 			// (https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html)
-			PreparedStatement ps = con.prepareStatement("insert into notes (userid,title,note) values(?,?,?)");
+			PreparedStatement ps = con.prepareStatement("insert into notes (title,note) values(?,?)");
 
 			// Step 5: parse in the data retrieved from the web form request into the
 			// prepared statement accordingly
-			ps.setString(1, userid);
-			ps.setString(2, title);
-			ps.setString(3, note);
+			//ps.setString(1, userid);
+			ps.setString(1, title);
+			ps.setString(2, note);
 			// Step 6: perform the query on the database using the prepared statement
 			int i = ps.executeUpdate();
 			// Step 7: check if the query had been successfully execute, return “You are
 			// successfully registered” via the response,
-			if (i > 0) {
+			response.sendRedirect("http://localhost:8090/mynotesapp/NotesServlet");
+			/*if (i > 0) {
 				PrintWriter writer = response.getWriter();
 				writer.println("<h1>" + "You have successfully created a new note!" + "</h1>");
 				writer.close();
-			}
+			}*/
 		}
 		// Step 8: catch and print out any exception
 		catch (Exception exception) {
