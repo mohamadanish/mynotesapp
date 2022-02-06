@@ -44,7 +44,6 @@ public class NewRemindersServlet extends HttpServlet {
 		//Step 1: Initialize a PrintWriter object to return the html values via the response
 		PrintWriter out = response.getWriter();
 		//Step 2: retrieve the four parameters from the request from the web form
-		String n = request.getParameter("userid");
 		String p = request.getParameter("startdate");
 		String e = request.getParameter("enddate");
 		String c = request.getParameter("task");
@@ -54,20 +53,20 @@ public class NewRemindersServlet extends HttpServlet {
 		 Connection con = DriverManager.getConnection(
 		 "jdbc:mysql://localhost:3306/mynotesapp", "root", "password");
 		//Step 4: implement the sql query using prepared statement (https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html)
-		 PreparedStatement ps = con.prepareStatement("insert into REMINDERS (userid, startdate, enddate, task) values(?,?,?,?)");
+		 PreparedStatement ps = con.prepareStatement("insert into REMINDERS (startdate, enddate, task) values(?,?,?)");
 		//Step 5: parse in the data retrieved from the web form request into the prepared statement accordingly
-		 ps.setString(1, n);
-		 ps.setString(2, p);
-		 ps.setString(3, e);
-		 ps.setString(4, c);
+		 ps.setString(1, p);
+		 ps.setString(2, e);
+		 ps.setString(3, c);
 		//Step 6: perform the query on the database using the prepared statement
 		 int i = ps.executeUpdate();
 		//Step 7: check if the query had been successfully execute, return “You are successfully registered” via the response,
 		 if (i > 0){
-		PrintWriter writer = response.getWriter();
-		writer.println("<h1>" + "You have successfully created a reminder!" +
-		"</h1>");
-		writer.close();
+//		PrintWriter writer = response.getWriter();
+//		writer.println("<h1>" + "You have successfully created a reminder!" +
+//		"</h1>");
+//		writer.close();
+			 response.sendRedirect("http://localhost:8090/mynotesapp/RemindersServlet/dashboard");
 		}
 		}
 		//Step 8: catch and print out any exception

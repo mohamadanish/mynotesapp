@@ -26,10 +26,10 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>UserID</th>
 						<th>Start Date</th>
-						<th>End Date</th>
+						<th>Due Date</th>
 						<th>Task</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<!-- Pass in the list of users receive via the Servlet’s response to a loop
@@ -39,7 +39,6 @@
 						<!-- For each user in the database, display their
 information accordingly -->
 						<tr>
-							<td><c:out value="${reminder.userid}" /></td>
 							<td><c:out value="${reminder.startdate}" /></td>
 							<td><c:out value="${reminder.enddate}" /></td>
 							<td><c:out value="${reminder.task}" /></td>
