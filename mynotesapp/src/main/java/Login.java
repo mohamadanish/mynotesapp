@@ -26,7 +26,7 @@ public class Login extends HttpServlet {
      */
     public Login() {
         super();
-        // TODO Auto-generated constructor stub 
+        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -49,10 +49,11 @@ public class Login extends HttpServlet {
 		
 		try { 
 			 Class.forName("com.mysql.cj.jdbc.Driver");
-			 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/users", "root", "password");	
+			 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mynotesapp", "root", "password");	
 			 PreparedStatement pst = con.prepareStatement("select * from USERSINFO where username = ? and password = ?");
 			 pst.setString(1, n);
-			 pst.setString(2, p);			 
+			 pst.setString(2, p);
+			 
 			 
 			 ResultSet rs = pst.executeQuery();
 			 if (rs.next()) {

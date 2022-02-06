@@ -69,7 +69,7 @@ public class ProfileServlet extends HttpServlet {
 		doGet(request, response);
 	}
 	
-    private String jdbcURL = "jdbc:mysql://localhost:3308/users";
+    private String jdbcURL = "jdbc:mysql://localhost:3306/mynotesapp";
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "password";
 
