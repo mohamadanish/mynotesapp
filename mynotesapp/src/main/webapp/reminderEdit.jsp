@@ -20,7 +20,7 @@
 		<ul class="navbar-nav">
 			<li><a
 				href="<%=request.getContextPath()%>/RemindersServlet/dashboard"
-				class="nav-link">Back to Dashboard</a></li>
+				class="nav-link">Back to Reminders</a></li>
 		</ul>
 	</nav>
 	<div class="container col-md-6">
@@ -43,24 +43,38 @@ Add New Reminder
 					</h2>
 				</caption>
 				<c:if test="${reminder != null}">
-					<input type="hidden" name="startdate"
+					<input type="hidden" name="id"
 						value="<c:out
-value='${reminder.startdate}' />" />
+value='${reminder.id}' />" />
 				</c:if>
 				<fieldset class="form-group">
-					<label>Start Date</label> <input type="datetime-local"
+					<label>Initial start Date</label> <input readonly type="text"
 						value="<c:out
-value='${reminder.enddate}' />"
-						class="form-control" name="enddate" required="required">
+value='${reminder.startdate}' />"
+						class="form-control">
+						<br>
+						<label>Updated start Date</label>
+						<input type="datetime-local"
+						value="<c:out
+value='${reminder.startdate}' />"
+						class="form-control" name="startdate" required="required">
 				</fieldset>
 				<fieldset class="form-group">
-					<label>Due date</label> <input type="datetime-local"
+					<label>Initial due date</label> <input readonly type="text"
+						value="<c:out
+value='${reminder.enddate}' />" class="form-control">
+						<br>
+						<label>Updated start Date</label>
+						<input type="datetime-local"
+						value="<c:out
+value='${reminder.enddate}' />" class="form-control"
+						name="enddate">
+				</fieldset>
+				<fieldset class="form-group">
+					<label>Task</label> <input type="text"
 						value="<c:out
 value='${reminder.task}' />" class="form-control"
 						name="task">
-				</fieldset>
-				<fieldset class="form-group">
-					<label>Task</label>
 				</fieldset>
 				<button type="submit" class="btn btn-success">Save</button>
 				</form>

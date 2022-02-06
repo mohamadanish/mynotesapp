@@ -57,8 +57,16 @@ public class Login extends HttpServlet {
 			 
 			 ResultSet rs = pst.executeQuery();
 			 if (rs.next()) {
+				 session.setAttribute("id", rs.getInt("id"));
 				 session.setAttribute("username", rs.getString("username"));
-				 dispatcher = request.getRequestDispatcher("index.jsp");
+				 session.setAttribute("password", rs.getString("password"));
+				 session.setAttribute("email", rs.getString("email"));
+				 session.setAttribute("phone", rs.getString("address"));
+				 session.setAttribute("address", rs.getString("phone"));
+
+				 dispatcher = request.getRequestDispatcher("userHome.jSsp");
+//				 dispatcher = request.getRequestDispatcher("Profile.jsp");
+
 				 
 			 } else {
 				 request.setAttribute("status", "failed");
