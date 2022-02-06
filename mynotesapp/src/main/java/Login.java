@@ -26,7 +26,7 @@ public class Login extends HttpServlet {
      */
     public Login() {
         super();
-        // TODO Auto-generated constructor stub 
+        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -52,7 +52,8 @@ public class Login extends HttpServlet {
 			 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/users", "root", "password");	
 			 PreparedStatement pst = con.prepareStatement("select * from USERSINFO where username = ? and password = ?");
 			 pst.setString(1, n);
-			 pst.setString(2, p);			 
+			 pst.setString(2, p);
+			 
 			 
 			 ResultSet rs = pst.executeQuery();
 			 if (rs.next()) {
@@ -63,7 +64,7 @@ public class Login extends HttpServlet {
 				 session.setAttribute("phone", rs.getString("address"));
 				 session.setAttribute("address", rs.getString("phone"));
 
-				 dispatcher = request.getRequestDispatcher("userHome.jsp");
+				 dispatcher = request.getRequestDispatcher("userHome.jSsp");
 //				 dispatcher = request.getRequestDispatcher("Profile.jsp");
 
 				 
