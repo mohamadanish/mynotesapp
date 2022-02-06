@@ -86,8 +86,8 @@ color:white;
 		</div>
 		<ul>
 			<li><a href="userHome.jsp" class="active">Home</a></li>
-			<li><a href="">Notes</a></li>
-			<li><a href="">Reminders</a></li>
+			<li><a href="NotesServlet">Notes</a></li>
+			<li><a href="RemindersServlet/dashboard">Reminders</a></li>
 			<li><a href="AdminServlet/dashboard">Admin</a></li>
 			<li><a href="logout">logout</a></li>
 			<li><a href="ProfileServlet/profile"><%=session.getAttribute("username") %></a></li>

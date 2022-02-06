@@ -15,7 +15,7 @@
 <body>
 	<nav class="navbar navbar-expand-md navbar-light">
 		<div>
-			<a class="navbar-brand"> User Management Application </a>
+			<a class="navbar-brand"> EDIT REMINDERS </a>
 		</div>
 		<ul class="navbar-nav">
 			<li><a
@@ -53,7 +53,7 @@ value='${reminder.id}' />" />
 value='${reminder.startdate}' />"
 						class="form-control">
 						<br>
-						<label>Updated start Date</label>
+						<label>Updated Start Date</label>
 						<input type="datetime-local"
 						value="<c:out
 value='${reminder.startdate}' />"
@@ -64,8 +64,8 @@ value='${reminder.startdate}' />"
 						value="<c:out
 value='${reminder.enddate}' />" class="form-control">
 						<br>
-						<label>Updated start Date</label>
-						<input type="datetime-local"
+						<label>Updated End Date</label>
+						<input type="datetime-local" required
 						value="<c:out
 value='${reminder.enddate}' />" class="form-control"
 						name="enddate">
@@ -74,7 +74,7 @@ value='${reminder.enddate}' />" class="form-control"
 					<label>Task</label> <input type="text"
 						value="<c:out
 value='${reminder.task}' />" class="form-control"
-						name="task">
+						name="task" required>
 				</fieldset>
 				<button type="submit" class="btn btn-success">Save</button>
 				</form>
