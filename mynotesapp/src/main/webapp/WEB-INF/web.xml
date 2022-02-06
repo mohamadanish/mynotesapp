@@ -27,12 +27,26 @@
  <servlet-name>AdminServlet</servlet-name>
  <servlet-class>AdminServlet</servlet-class>
  </servlet>
+ 
+  <servlet>
+ <servlet-name>ProfileServlet</servlet-name>
+ <servlet-class>ProfileServlet</servlet-class>
+ </servlet>
 
  <servlet-mapping>
  <servlet-name>AdminServlet</servlet-name>
+ 
 <url-pattern>/AdminServlet/dashboard</url-pattern>
  <url-pattern>/AdminServlet/edit</url-pattern>
  <url-pattern>/AdminServlet/update</url-pattern>
  <url-pattern>/AdminServlet/delete</url-pattern>
  </servlet-mapping>
+ 
+ <servlet-mapping>
+  <servlet-name>ProfileServlet</servlet-name>
+ <url-pattern>/ProfileServlet/profile</url-pattern>
+ <url-pattern>/ProfileServlet/edit</url-pattern>
+  <url-pattern>/ProfileServlet/update</url-pattern>
+ </servlet-mapping>
+ 
 </web-app>

@@ -68,7 +68,6 @@ public class RegisterServlet extends HttpServlet {
 			 int i = ps.executeUpdate();
 			 dispatcher = request.getRequestDispatcher("register.jsp");
 			 if (i > 0){
-				 
 				 request.setAttribute("status", "success");
 //				 PrintWriter writer = response.getWriter();
 //				 writer.println("<h1>" + "You have successfully registered an account!" +
