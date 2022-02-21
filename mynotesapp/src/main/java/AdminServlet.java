@@ -192,7 +192,7 @@ public class AdminServlet extends HttpServlet {
 			int i = statement.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-		}
+		} 
 		// Step 3: redirect back to UserServlet dashboard (note: remember to change the
 		// url to your project name)
 		response.sendRedirect("http://localhost:8090/mynotesapp/AdminServlet/dashboard");
