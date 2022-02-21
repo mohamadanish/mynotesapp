@@ -24,6 +24,7 @@
 		<url-pattern>/NotesServlet/update</url-pattern>
 		<url-pattern>/NotesServlet/delete</url-pattern>
 	</servlet-mapping>
+
 	<display-name>mynotesapp</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
@@ -37,10 +38,16 @@
 		<servlet-name>ProfileServlet</servlet-name>
 		<servlet-class>ProfileServlet</servlet-class>
 	</servlet>
+
 	<servlet>
 		<servlet-name>AdminServlet</servlet-name>
 		<servlet-class>AdminServlet</servlet-class>
 	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>AdminServlet</servlet-name>
+
 	<servlet-mapping>
 		<servlet-name>AdminServlet</servlet-name>
 		<url-pattern>/AdminServlet/dashboard</url-pattern>
@@ -52,6 +59,7 @@
 		<servlet-name>RemindersServlet</servlet-name>
 		<servlet-class>RemindersServlet</servlet-class>
 	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>RemindersServlet</servlet-name>
 		<url-pattern>/RemindersServlet/dashboard</url-pattern>
@@ -65,5 +73,7 @@
 		<url-pattern>/ProfileServlet/edit</url-pattern>
 		<url-pattern>/ProfileServlet/update</url-pattern>
 	</servlet-mapping>
+
 </web-app>
+
 

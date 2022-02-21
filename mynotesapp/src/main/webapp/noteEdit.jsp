@@ -25,7 +25,7 @@ color:red;
 }
 .body {
   background-color: #088F8F;
-}
+ }
 
 </style>
 <title>Notes</title>
