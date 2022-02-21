@@ -1,4 +1,6 @@
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class Admin {
 	
@@ -71,4 +73,16 @@ public class Admin {
 		this.phone = phone;
 	}
 
+//	public boolean deletUser(int id)
+//	{
+//		try (Connection connection = getConnection();
+//				PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) {
+//			statement.setInt(1, id);
+//			int i = statement.executeUpdate();
+//			return true;
+//		} catch (SQLException e) {
+//			System.out.println(e.getMessage());
+//			return false;
+//		}
+//	}
 }
