@@ -41,7 +41,6 @@
 		<servlet-class>ProfileServlet</servlet-class>
 	</servlet>
 
-
 	<servlet>
 		<servlet-name>AdminServlet</servlet-name>
 		<servlet-class>AdminServlet</servlet-class>

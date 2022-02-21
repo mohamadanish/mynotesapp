@@ -37,28 +37,28 @@ public class AdminServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+
 		String action = request.getServletPath();
-		 try {
-		 switch (action) {
-		 case "/insert":
-			 break;
-		 case "/AdminServlet/delete":
+		try {
+			switch (action) {
+			case "/insert":
+				break;
+			case "/AdminServlet/delete":
 				deleteUser(request, response);
 				break;
-			 case "/AdminServlet/edit":
-				 showEditForm(request, response);
-				 break; 
-			 case "/AdminServlet/update":
-				 updateUser(request, response);
-				 break;
-			 case "/AdminServlet/dashboard":
-				 listUsers(request, response);
-				 break;
-		 }
-		 } catch (SQLException ex) {
-		 throw new ServletException(ex);
-		 }
+			case "/AdminServlet/edit":
+				showEditForm(request, response);
+				break;
+			case "/AdminServlet/update":
+				updateUser(request, response);
+				break;
+			case "/AdminServlet/dashboard":
+				listUsers(request, response);
+				break;
+			}
+		} catch (SQLException ex) {
+			throw new ServletException(ex);
+		}
 	}
 
 	/**
@@ -96,10 +96,10 @@ public class AdminServlet extends HttpServlet {
 		}
 		return connection;
 	}
-	
+
 	private void listUsers(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		List <Admin> users = new ArrayList<>();
+		List<Admin> users = new ArrayList<>();
 		try (Connection connection = getConnection();
 // Step 5.1: Create a statement using connection object
 				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);) {
@@ -124,10 +124,10 @@ public class AdminServlet extends HttpServlet {
 		request.setAttribute("listUsers", users);
 		request.getRequestDispatcher("/Admin.jsp").forward(request, response);
 	}
-	
+
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
-		
+
 		int id = Integer.parseInt(request.getParameter("id"));
 		Admin existingUser = new Admin("", "", "", "", "");
 		try (Connection connection = getConnection();
@@ -149,55 +149,53 @@ public class AdminServlet extends HttpServlet {
 		request.setAttribute("user", existingUser);
 		request.getRequestDispatcher("/userEdit.jsp").forward(request, response);
 	}
-	
+
 	private void updateUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-		//Step 1: Retrieve value from the request
-				int id = Integer.parseInt(request.getParameter("id"));
-				String username = request.getParameter("username");
-				String password = request.getParameter("password");
-				String email = request.getParameter("email");
-				String address = request.getParameter("address");
-				String phone = request.getParameter("phone");
-				System.out.println(address+ username+"REQ");
+		// Step 1: Retrieve value from the request
+		int id = Integer.parseInt(request.getParameter("id"));
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		String email = request.getParameter("email");
+		String address = request.getParameter("address");
+		String phone = request.getParameter("phone");
+		System.out.println(address + username + "REQ");
 
+		// Step 2: Attempt connection with database and execute update user SQL query
+		try (Connection connection = getConnection();
+				PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
+			statement.setInt(1, id);
+			statement.setString(2, username);
+			statement.setString(3, password);
+			statement.setString(4, email);
+			statement.setString(5, address);
+			statement.setString(6, phone);
+			statement.setInt(7, id); // where condition
 
-		//Step 2: Attempt connection with database and execute update user SQL query
-				try (Connection connection = getConnection();
-						PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
-					statement.setInt(1, id);
-					statement.setString(2, username);
-					statement.setString(3, password);
-					statement.setString(4, email);
-					statement.setString(5, address);
-					statement.setString(6, phone);
-					statement.setInt(7, id); // where condition
+			System.out.println(address);
 
-					System.out.println(address);
-				
-					int i = statement.executeUpdate();
-				} catch (SQLException e) {
-					System.out.println(e.getMessage());
-				}
-		//Step 3: redirect back to UserServlet (note: remember to change the url to your project name)
-				response.sendRedirect("http://localhost:8090/mynotesapp/AdminServlet/dashboard");
-			} 
-	
+			int i = statement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		// Step 3: redirect back to UserServlet (note: remember to change the url to
+		// your project name)
+		response.sendRedirect("http://localhost:8090/mynotesapp/AdminServlet/dashboard");
+	}
+
 	private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		// Step 1: Retrieve value from the request
 		int id = Integer.parseInt(request.getParameter("id"));
 		// Step 2: Attempt connection with database and execute delete user SQL query
-				try (Connection connection = getConnection();
-						PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) {
-					statement.setInt(1, id);
-					int i = statement.executeUpdate();
-				} catch (SQLException e) {
-					System.out.println(e.getMessage());
-				}
+		try (Connection connection = getConnection();
+				PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) {
+			statement.setInt(1, id);
+			int i = statement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} 
 		// Step 3: redirect back to UserServlet dashboard (note: remember to change the
 		// url to your project name)
-				response.sendRedirect("http://localhost:8090/mynotesapp/AdminServlet/dashboard");
-			}
-	
-	
+		response.sendRedirect("http://localhost:8090/mynotesapp/AdminServlet/dashboard");
+	}
 
 }
