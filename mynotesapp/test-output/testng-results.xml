@@ -1,25 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="1" passed="1" failed="0" skipped="0">
+<testng-results total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-02-20T05:34:16Z" name="Default suite" finished-at="2022-02-20T05:34:18Z" duration-ms="1810">
+  <suite started-at="2022-02-23T17:42:35Z" name="Default suite" finished-at="2022-02-23T17:42:42Z" duration-ms="7472">
     <groups>
     </groups>
-    <test started-at="2022-02-20T05:34:16Z" name="Default test" finished-at="2022-02-20T05:34:18Z" duration-ms="1810">
-      <class name="mynotesapp.NewTest">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:mynotesapp.NewTest@50029372]" started-at="2022-02-20T13:34:16Z" name="beforeTest" finished-at="2022-02-20T13:34:16Z" duration-ms="5" status="PASS">
+    <test started-at="2022-02-23T17:42:35Z" name="Default test" finished-at="2022-02-23T17:42:42Z" duration-ms="7472">
+      <class name="NewTest">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:NewTest@2f01783a]" started-at="2022-02-24T01:42:35Z" name="beforeTest" finished-at="2022-02-24T01:42:35Z" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="updateUser()[pri:0, instance:mynotesapp.NewTest@50029372]" started-at="2022-02-20T13:34:16Z" name="updateUser" finished-at="2022-02-20T13:34:18Z" duration-ms="1798" status="PASS">
+        <test-method signature="deleteUser()[pri:0, instance:NewTest@2f01783a]" started-at="2022-02-24T01:42:35Z" name="deleteUser" finished-at="2022-02-24T01:42:36Z" duration-ms="1274" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteUser -->
+        <test-method signature="login()[pri:0, instance:NewTest@2f01783a]" started-at="2022-02-24T01:42:36Z" name="login" finished-at="2022-02-24T01:42:37Z" duration-ms="960" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="logout()[pri:0, instance:NewTest@2f01783a]" started-at="2022-02-24T01:42:37Z" name="logout" finished-at="2022-02-24T01:42:38Z" duration-ms="1019" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+        <test-method signature="register()[pri:0, instance:NewTest@2f01783a]" started-at="2022-02-24T01:42:38Z" name="register" finished-at="2022-02-24T01:42:39Z" duration-ms="1078" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- register -->
+        <test-method signature="updateProfile()[pri:0, instance:NewTest@2f01783a]" started-at="2022-02-24T01:42:39Z" name="updateProfile" finished-at="2022-02-24T01:42:40Z" duration-ms="1428" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateProfile -->
+        <test-method signature="updateUser()[pri:0, instance:NewTest@2f01783a]" started-at="2022-02-24T01:42:40Z" name="updateUser" finished-at="2022-02-24T01:42:42Z" duration-ms="1697" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateUser -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:mynotesapp.NewTest@50029372]" started-at="2022-02-20T13:34:18Z" name="afterTest" finished-at="2022-02-20T13:34:18Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:NewTest@2f01783a]" started-at="2022-02-24T01:42:42Z" name="afterTest" finished-at="2022-02-24T01:42:42Z" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- mynotesapp.NewTest -->
+      </class> <!-- NewTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

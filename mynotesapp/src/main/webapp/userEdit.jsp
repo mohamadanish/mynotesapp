@@ -49,36 +49,36 @@
 value='${user.id}' />" />
 				</c:if>
 				<fieldset class="form-group">
-					<label>Username</label> <input type="text"
+					<label>Username</label> <input type="text" id="username"
 						value="<c:out
-value='${user.username}' />" class="form-control"
+value='${user.username}' />" class="form-control" 
 						name="username" required>
 				</fieldset>
 				<fieldset class="form-group">
-					<label>Password</label> <input type="text"
+					<label>Password</label> <input type="text" id="password"
 						value="<c:out
 value='${user.password}' />" class="form-control"
 						name="password" required>
 				</fieldset>
 				<fieldset class="form-group">
-					<label>User Email</label> <input type="email"
+					<label>User Email</label> <input type="email" id="email"
 						value="<c:out
 value='${user.email}' />" class="form-control"
 						name="email" required>
 				</fieldset>
 				<fieldset class="form-group">
-					<label> Address</label> <input type="text"
+					<label> Address</label> <input type="text" id="address"
 						value="<c:out
 value='${user.address}' />" class="form-control"
 						name="address" required>
 				</fieldset>
 				<fieldset class="form-group">
-					<label> Phone</label> <input type="text"
+					<label> Phone</label> <input type="text" id="phone"
 						value="<c:out
 value='${user.phone}' />" class="form-control"
 						name="phone" minlength="8" maxlength="8" required>
 				</fieldset>
-				<button type="submit" class="btn btn-warning">Save</button>
+				<button type="submit" id="save" class="btn btn-warning">Save</button>
 				</form>
 			</div>
 		</div>

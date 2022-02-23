@@ -84,18 +84,18 @@ value='${user.email}' />" class="form-control"
 						name="email" required>
 				</fieldset>
 				<fieldset class="form-group">
-					<label> Address</label> <input type="text"
+					<label> Address</label> <input type="text" id="address"
 						value="<c:out
 value='${user.address}' />" class="form-control"
 						name="address" required>
 				</fieldset>
 				<fieldset class="form-group">
-					<label> Phone</label> <input type="text"
+					<label> Phone</label> <input type="text" id="phone"
 						value="<c:out
 value='${user.phone}' />" class="form-control"
 						name="phone" minlength="8" maxlength="8" required>
 				</fieldset>
-				<button type="submit" class="btn btn-warning">Save</button>
+				<button type="submit" id="save" class="btn btn-warning">Save</button>
 				</form>
 			</div>
 		</div>
