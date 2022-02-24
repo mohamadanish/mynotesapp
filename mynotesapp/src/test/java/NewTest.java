@@ -75,7 +75,7 @@ public WebDriver webDriver;
 //		WebDriver driver = new ChromeDriver();
 		webDriver.get("http://localhost:8090/mynotesapp/login.jsp");
 		webDriver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys("Testing2");
-		webDriver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("testing123");
+		webDriver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("testing123"); 
 		webDriver.findElement(By.xpath("//*[@id=\"signin\"]")).click();
 		webDriver.findElement(By.linkText("TESTING")).click();
 		webDriver.findElement(By.linkText("Update")).click();
