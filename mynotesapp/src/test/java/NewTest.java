@@ -17,7 +17,7 @@ public WebDriver webDriver;
 
 		
 		webDriver.get("http://localhost:8090/mynotesapp/register.jsp");
-		webDriver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys("Testing2");
+		webDriver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys("Testing");
 		webDriver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("testing123");
 		webDriver.findElement(By.xpath("//*[@id=\"cfmPassword\"]")).sendKeys("testing123");
 		webDriver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("testing123@gmail.com");
@@ -77,7 +77,7 @@ public WebDriver webDriver;
 		webDriver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys("Testing2");
 		webDriver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("testing123"); 
 		webDriver.findElement(By.xpath("//*[@id=\"signin\"]")).click();
-		webDriver.findElement(By.linkText("TESTING")).click();
+		webDriver.findElement(By.linkText("TESTING2")).click();
 		webDriver.findElement(By.linkText("Update")).click();
 		webDriver.findElement(By.xpath("//*[@id=\"address\"]")).clear();
 		webDriver.findElement(By.xpath("//*[@id=\"address\"]")).sendKeys("Yishun");
