@@ -40,7 +40,7 @@ class AdminTest {
 	}
 
 	@Test
-	void testDeletUser() {
+	void testDeletUser() { 
 		assertTrue(admin.deletUser(id));
 
 	}
