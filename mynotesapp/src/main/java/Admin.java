@@ -121,7 +121,7 @@ public class Admin {
 		}
 	}
 
-	public boolean updateUser(int id) {
+	public boolean updateUser(int id, String username, String password, String email, String address, String phone) {
 		try (Connection connection = getConnection();
 				PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
 			statement.setInt(1, id);
@@ -142,7 +142,7 @@ public class Admin {
 		}
 	}
 	
-	public boolean updateProfile(int id) {
+	public boolean updateProfile(int id, String username, String password, String email, String address, String phone) {
 		try (Connection connection = getConnection();
 				PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
 			statement.setInt(1, id);

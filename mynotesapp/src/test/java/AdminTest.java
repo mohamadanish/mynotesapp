@@ -7,12 +7,22 @@ import org.junit.jupiter.api.Test;
 class AdminTest {
 	private Admin admin;
 	private int id;
+	private String username;
+	private String password;
+	private String email;
+	private String address;
+	private String phone;
 	private int ids;
 	@BeforeEach
 	void setUp() throws Exception {
 		admin = new Admin(0, null,null,null,null,null);
-		id = 3;
-		ids = 9;
+		id = 40;
+		username = "test";
+		password = "test";
+		email = "test";
+		address = "test";
+		phone = "11111111";
+		ids = 45;
 	}
 
 	@AfterEach
@@ -37,12 +47,12 @@ class AdminTest {
 	
 	@Test
 	void testUpdateUser() {
-		assertTrue(admin.updateUser(id));
+		assertTrue(admin.updateUser(ids,username, password, email, address, phone));
 	}
 	
 	@Test
 	void testUpdateProfile() {
-		assertTrue(admin.updateProfile(id));
+		assertTrue(admin.updateProfile(ids,username, password, email, address, phone));
 	}
 	
 	@Test
