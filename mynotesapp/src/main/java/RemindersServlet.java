@@ -74,8 +74,7 @@ public class RemindersServlet extends HttpServlet {
 	private String jdbcPassword = "password";
 	// Step 2: Prepare list of SQL prepared statements to perform CRUD to our
 	// database
-	private static final String INSERT_REMINDERS_SQL = "INSERT INTO reminders" + " (startdate, enddate, task) VALUES "
-			+ " (?, ?, ?);";
+	private static final String INSERT_REMINDERS_SQL = "INSERT INTO reminders" + " (startdate, enddate, task) VALUES " + " (?, ?, ?);";
 	private static final String SELECT_REMINDERS_BY_ID = "select id,startdate,enddate,task from reminders where id = ?";
 	private static final String SELECT_ALL_REMINDERS = "select * from reminders";
 	private static final String DELETE_REMINDERS_SQL = "delete from reminders where id = ?;";

@@ -26,11 +26,10 @@
 	<div class="form">
 		<form action="NewRemindersServlet" method="post">
 			<div class="container">
-				<br> <br> Start date: <input type="datetime-local"
-					name="startdate"> <br> <br> End date: <input
-					type="datetime-local" name="enddate"> <br> <br>
-				Reminder: <input type="text" name="task"> <br> <br>
-				<input type="submit" value="Add reminder" />
+				<br> <br> Start date: <input type="text" name="startdate"> 
+				<br> <br> End date: <input type="text" name="enddate">
+				<br> <br> Reminder: <input type="text" name="task"> <br> <br>
+				<input type="submit" id="submit" value="Add reminder" />
 			</div>
 		</form>
 	</div>

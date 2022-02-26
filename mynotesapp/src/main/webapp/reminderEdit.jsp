@@ -54,7 +54,7 @@ value='${reminder.startdate}' />"
 						class="form-control">
 						<br>
 						<label>Updated Start Date</label>
-						<input type="datetime-local"
+						<input type="text" id="startdate"
 						value="<c:out
 value='${reminder.startdate}' />"
 						class="form-control" name="startdate" required="required">
@@ -65,18 +65,18 @@ value='${reminder.startdate}' />"
 value='${reminder.enddate}' />" class="form-control">
 						<br>
 						<label>Updated End Date</label>
-						<input type="datetime-local" required
+						<input type="text" required id="enddate"
 						value="<c:out
 value='${reminder.enddate}' />" class="form-control"
 						name="enddate">
 				</fieldset>
 				<fieldset class="form-group">
-					<label>Task</label> <input type="text"
+					<label>Task</label> <input type="text" id="reminder"
 						value="<c:out
 value='${reminder.task}' />" class="form-control"
 						name="task" required>
 				</fieldset>
-				<button type="submit" class="btn btn-success">Save</button>
+				<button id="submit" type="submit" class="btn btn-success">Save</button>
 				</form>
 			</div>
 		</div>
