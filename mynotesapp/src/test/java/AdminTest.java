@@ -22,7 +22,7 @@ class AdminTest {
 		email = "test";
 		address = "test";
 		phone = "11111111";
-		ids = 74;
+		ids = 90;
 	}
 
 	@AfterEach
